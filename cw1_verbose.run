@@ -1,0 +1,37 @@
+reset;
+option solver conopt;
+option display_1col 1;
+model cw1.mod;
+data  cw1.dat;
+
+print "";
+print "***** Math6120 - Nonlinear Optimization *****";
+print "***** Coursework 1 - AMPL Model *****";
+print "***** Emma Tarmey, 2940 4045 *****";
+print "";
+
+for {value in {10}} {
+	let N       := value;
+	let t_final := 1;
+	let {t in TIMEINDEX} height[t]   := 1;
+	let {t in TIMEINDEX} velocity[t] := velocity_function[t];
+	let {t in TIMEINDEX} mass[t]     := mass_function[t];
+	let {t in TIMEINDEX} thrust[t]   := (theta_max / 2);
+	
+	solve;
+	print "";
+	print "***** Optimal Solution: *****";
+	print "";
+	
+	display N;
+	display final_height;
+	display t_final;
+	
+	display height;
+	display velocity;
+	display mass;
+	display thrust;
+	print "";
+	print "";
+}
+

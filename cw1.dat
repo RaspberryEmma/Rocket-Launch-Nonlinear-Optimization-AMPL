@@ -1,0 +1,11 @@
+## Math6120 - Nonlinear Optimization
+## Coursework 1 - AMPL Model - Data File
+## Emma Tarmey, 2940 4045
+
+## This file specifies all parameters required by the corresponding cw1 model
+
+param theta_max  := 3.5;
+param height_0   := 500;
+param velocity_0 := 620;
+
+
